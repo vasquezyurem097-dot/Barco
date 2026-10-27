@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+int main()
+{
+    int ventas[3][4];
+    int i, j;
+    int totalProducto;
+    int totalGeneral = 0;
+
+    // Solicitar las ventas de cada producto durante los 4 dias
+    for(i = 0; i < 3; i++)
+    {
+        printf("\nProducto %d\n", i + 1);
+
+        for(j = 0; j < 4; j++)
+        {
+            printf("Ingresa las ventas del dia %d: ", j + 1);
+            scanf("%d", &ventas[i][j]);
+        }
+    }
+
+    // Mostrar la matriz completa en forma de tabla
+    printf("\n===== REGISTRO DE VENTAS =====\n");
+    printf("Producto\tDia 1\tDia 2\tDia 3\tDia 4\n");
+
+    for(i = 0; i < 3; i++)
+    {
+        printf("Producto %d\t", i + 1);
+
+        for(j = 0; j < 4; j++)
+        {
+            printf("%d\t", ventas[i][j]);
+        }
+
+        printf("\n");
+    }
+
+    // Calcular y mostrar el total de ventas de cada producto
+    printf("\n===== TOTAL POR PRODUCTO =====\n");
+
+    for(i = 0; i < 3; i++)
+    {
+        totalProducto = 0;
+
+        for(j = 0; j < 4; j++)
+        {
+            totalProducto = totalProducto + ventas[i][j];
+        }
+
+        printf("Total del producto %d: %d\n", i + 1, totalProducto);
+        totalGeneral = totalGeneral + totalProducto;
+    }
+
+    // Mostrar el total de ventas de todos los productos
+    printf("\nTotal de ventas de todos los productos: %d\n", totalGeneral);
+
+    return 0;
+}
